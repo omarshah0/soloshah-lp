@@ -1,21 +1,32 @@
 import React from "react"
-import { Link } from "gatsby"
-
+import Loadable from "react-loadable"
+import loadingComp from "../components/loadingComp"
+import Section from "../components/Section/section"
+import Features from "../components/Features/features"
+import GetStarted from "../components/Get Started/get-started"
+import Services from "../components/Services/services"
+import Team from "../components/Team/our-team"
+import Pricing from "../components/Pricing/pricing"
+import GetInTouch from "../components/Get in Touch/get-in-touch"
 import Layout from "../components/layout"
-import Image from "../components/image"
 import SEO from "../components/seo"
+
+const LoadableClients = Loadable({
+  loader: () => import("../components/Clients/clients"),
+  loading: loadingComp,
+})
 
 const IndexPage = () => (
   <Layout>
-    <SEO title="Home" />
-    <h1>Hi people</h1>
-    <p>Welcome to your new Gatsby site.</p>
-    <p>Now go build something great.</p>
-    <div style={{ maxWidth: `300px`, marginBottom: `1.45rem` }}>
-      <Image />
-    </div>
-    <Link to="/page-2/">Go to page 2</Link> <br />
-    <Link to="/using-typescript/">Go to "Using TypeScript"</Link>
+    <SEO title="SoloShah" />
+    <Section />
+    <Features />
+    <GetStarted />
+    <Services />
+    <LoadableClients />
+    <Team />
+    <Pricing />
+    <GetInTouch />
   </Layout>
 )
 
